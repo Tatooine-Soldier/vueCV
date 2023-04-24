@@ -14,7 +14,7 @@ import NavBar from './components/NavBar.vue'
 
 <style>
   #app-container {
-    background-color: rgb(70, 8, 131);
+    color: white;
   }
 
   body {
