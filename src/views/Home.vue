@@ -10,6 +10,7 @@
             </section>
         </section>
     </section>
+    <div id="copyright-line">Copyright @ Tom O'Dwyer 2023</div>
 </template>
 
 <style>
@@ -54,6 +55,15 @@
     .links {
         color: white;   
         text-decoration: none;
+    }
+
+    #copyright-line {
+        position: absolute;
+        z-index: 1;
+        top: 100%;
+        padding-top: 4%;
+        margin-left: 1%;;
+        color: grey;
     }
     
 </style>
