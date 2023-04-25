@@ -5,7 +5,7 @@ import NavBar from './components/NavBar.vue'
 <template>
   <section id="app-container">
     <NavBar/>
-    <section>
+    <section class="router">
       <router-view></router-view>
     </section>
     <div id="copyright-line">Copyright @ Tom O'Dwyer 2023</div>
@@ -20,6 +20,7 @@ import NavBar from './components/NavBar.vue'
   body {
     margin: 0px;
     font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
   }
 
   #copyright-line {
@@ -36,6 +37,9 @@ import NavBar from './components/NavBar.vue'
   #copyright-line {
     margin-top: 10%;
   }
+   body {
+    height: 100vh;
+   }
 }
 
 </style>

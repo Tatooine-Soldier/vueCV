@@ -48,14 +48,14 @@
         }
     }
 
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 450px) {
         #inner-navbar {
             display: grid;
             grid-template-columns: 99% 1%;;
         }
 
         .links {
-            padding: 5px;
+            padding: 10px;
         }
     }
 </style>
