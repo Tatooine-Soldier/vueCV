@@ -40,4 +40,22 @@
         grid-template-columns: 33% 33% 33%;
         text-align: center;
     }
+
+    @media screen and (max-width: 600px) {
+        #inner-navbar {
+            display: grid;
+        grid-template-columns: 70% 30%;;
+        }
+    }
+
+    @media screen and (max-width: 400px) {
+        #inner-navbar {
+            display: grid;
+            grid-template-columns: 99% 1%;;
+        }
+
+        .links {
+            padding: 5px;
+        }
+    }
 </style>

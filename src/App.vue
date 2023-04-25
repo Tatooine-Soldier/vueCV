@@ -8,7 +8,7 @@ import NavBar from './components/NavBar.vue'
     <section>
       <router-view></router-view>
     </section>
-      
+    <div id="copyright-line">Copyright @ Tom O'Dwyer 2023</div>
   </section>
 </template>
 
@@ -21,6 +21,22 @@ import NavBar from './components/NavBar.vue'
     margin: 0px;
     font-family: Arial, Helvetica, sans-serif;
   }
+
+  #copyright-line {
+    position: absolute;
+    z-index: 1;
+    top: 98%;
+    padding-top: 4%;
+    margin-left: 1%;;
+    color: grey;
+}
+
+
+@media screen and (max-width: 400px) {
+  #copyright-line {
+    margin-top: 10%;
+  }
+}
 
 </style>
 
