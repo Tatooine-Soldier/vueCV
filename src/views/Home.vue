@@ -55,6 +55,13 @@
         color: white;   
         text-decoration: none;
     }
+
+    @media screen and (max-width: 450px) {
+        .home-section {
+            padding: 20px;
+            font-size: 1.1em;
+        }
+    }
     
 </style>
 
