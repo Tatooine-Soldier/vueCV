@@ -8,7 +8,7 @@ import NavBar from './components/NavBar.vue'
     <section class="router">
       <router-view></router-view>
     </section>
-    <div id="copyright-line">Copyright @ Tom O'Dwyer 2023</div>
+    <!-- <div id="copyright-line">Copyright @ Tom O'Dwyer 2023</div> -->
   </section>
 </template>
 
