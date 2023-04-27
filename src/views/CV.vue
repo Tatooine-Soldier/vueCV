@@ -4,7 +4,7 @@
         <section class="details-container">
             <section class="details">
                 <div class="header-with-button">
-                    <h3>My Skills</h3> <span><input type="button" @click="expand('skills')" value="Expand" class="expand-CV"/></span>
+                    <h3>My Skills</h3> <span><input type="button" @click="expand('skills')" value="Skip" class="expand-CV"/></span>
                 </div>
                 <div class="skills-container" id="skills-container">
                     <section>
@@ -25,11 +25,34 @@
                             I learned HTML and CSS online when I was in school. I still enjoy creating cool websites (like this website) using HTML/CSS. I've become more familiar with Javascript too, particularly Javascript frameworks Vue and React which I've used in past projects. 
                         </section>
                     </section>
+                    <br>
+                    <p>Below I've ranked my strongest and weakest skills by colour: </p>
+                    <section class="skills-container">
+                        <section class="skill-paragraph">
+                            <div class="gradient-container">
+                                <span class="weak-strong">Weak</span><span class="ability-gradient"></span><span class="weak-strong">Strong</span>
+                            </div>
+                            <ul>
+                                <li>Python <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[1]}"></span></li>
+                                <li>Golang <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[2]}"></span></li>
+                                <li>HTML/CSS <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[1]}"></span></li>
+                                <li>Java <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[3]}"></span></li>
+                                <li>Vue JS <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[1]}"></span></li>
+                                <li>React JS <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[3]}"></span></li>
+                                <li>SQL <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[1]}"></span></li>
+                                <li>Mongo <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[2]}"></span></li>
+                                <li>Git <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[2]}"></span></li>
+                                <li>Docker <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[3]}"></span></li>
+    
+                            </ul>
+                        </section>
+                    </section>  
                 </div>
             </section>
             <section class="details">
                 <div class="header-with-button">
-                    <h3>My Experience</h3> <span><input type="button" @click="expand('exp')" value="Expand" class="expand-CV"/></span>
+                    
+                    <h3>My Experience</h3> <span><input type="button" @click="expand('exp')" value="Skip" class="expand-CV"/></span>
                 </div>
                 <div class="skills-container">
                     <section>
@@ -65,28 +88,82 @@
             </section>
             <section class="details">
                 <div class="header-with-button">
-                    <h3>My Skills</h3> <span><input type="button" @click="expand('education')" value="Expand" class="expand-CV"/></span>
+                    <h3>My Education</h3> <span><input type="button" @click="expand('education')" value="Skip" class="expand-CV"/></span>
                 </div>
-                <section class="skills-container">
+                <section>
+                    <h4>University College Cork, <i>2019-2023</i></h4>
                     <section class="skill-paragraph">
-                        <div v-for="(color, index) in rangeColors" v-bind:key="index">
-                            <span class="colorBlock" :style="{ backgroundColor: color}"></span>
-                        </div>
+                        I studied BSc Computer Science here in UCC. I learned a lot in UCC and I thought the campus was amazing.
                     </section>
-                </section>  
+                </section>
+                <section>
+                    <h4>St Kieran's College, <i>2013-2019</i></h4>
+                    <section class="skill-paragraph">
+                        I went secondary school here and enjoyed my time here. I completed my Junior and Leaving Certificates here. 
+                    </section>
+                </section>
             </section>
             <section class="details">
+                <!-- <a id="LINKS"></a> -->
                 Links: 
-                <section>LinkedIn</section>
-                <section>Github</section>
+                <ul>
+                    <li><section class="links"><a href="https://www.linkedin.com/in/tod11/">LinkedIn</a></section></li>
+                    <li><section class="links"><a href="https://github.com/Tatooine-Soldier">Github</a></section></li>
+                </ul>
             </section>
         </section>
     </section>
 </template>
 
 <style>
+    .ability-gradient {
+        background: linear-gradient(to right, #FF0000, #0000FF);
+        padding: 3%;
+        padding-right: 40%;
+        border: solid .5px silver;
+    }
+
+    .s-ability-gradient {
+        padding: 1%;
+        float: right;
+        padding-right: 10%;
+        margin-right: 70%; 
+        border: solid .5px silver;
+    }
+
+    .gradient-container {
+       padding: 5%;
+    }
+
+    .weak-strong {
+        padding: 0% 2%;
+        text-decoration: underline;
+    }
+
+    .weak-strong:first-of-type {
+        text-decoration-color: #FF0000;
+    }
+
+
+    .weak-strong:last-of-type {
+        text-decoration-color: #0000FF;
+    }
+
+    .skill-paragraph li {
+        padding: 1%;
+    }
+
+    .links {
+        padding: 2%;
+    }
+
+    .links a {
+        color: white;
+    }
+
     #name-container {
         padding: 2%;
+        text-align: center;
     }
 
     #cv-container {
@@ -127,7 +204,17 @@
         display: none;
      }
 
-   
+ 
+
+     @media screen and (max-width: 600px) {
+        .s-ability-gradient {
+            padding: 3%;
+            float: right;
+            padding-right: 10%;
+            margin-right: 50%; 
+            border: solid .5px silver;
+        }
+     }
 
     @media screen and (max-width: 400px) {
         .expand-CV {
@@ -159,7 +246,7 @@ export default {
     data() {
       return {
         counter: 0,
-        rangeColors: ["#FF0000"]
+        rangeColors: ["#0000FF", "#4A49D3", "#7A49C0", "#BE254B " ,"#FF0000"]
       }
     },
     methods: {

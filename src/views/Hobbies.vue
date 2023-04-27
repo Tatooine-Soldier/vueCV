@@ -1,3 +1,3 @@
 <template>
-    My Interests
+    
 </template>

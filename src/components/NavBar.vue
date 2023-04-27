@@ -13,7 +13,7 @@
     </section>
     <section class="menu-container" id="menu-container">
         <section class="menu" >
-            <div><router-link to="/CV">Astronomy</router-link></div>
+            <div><router-link to="/astronomy">Astronomy</router-link></div>
             <div><router-link to="/CV">Photography</router-link></div>
         </section>
     </section>

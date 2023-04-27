@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import CV from '../views/CV.vue'
 import Hobbies from '../views/Hobbies.vue'
+import Astronomy from '../views/Astronomy.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -22,6 +23,10 @@ const router = createRouter({
         path: '/hobbies', 
         component: Hobbies
     }, 
+    { 
+      path: '/astronomy', 
+      component: Astronomy
+  }, 
   ]
 })
 
