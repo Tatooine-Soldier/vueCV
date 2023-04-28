@@ -240,6 +240,44 @@
             margin-right: 50%; 
             border: solid .5px silver;
         }
+
+        .jump-to-container {
+            display: block;
+            right: 4%;
+            bottom: 3%;
+            border-radius: 15px;
+            padding: 5%;
+            border: solid 1px silver;
+            border-radius: 10px;;
+            background-color: #474056;
+            position: fixed;
+        }
+
+        #jump-list {
+            right: 4%;
+            bottom: 10%;
+            padding: .5%;
+            width: 40%;
+            position: fixed;
+            background-color: #474056;
+            color: white;
+            border: solid 1px silver;
+        }
+
+        #jump-list li {
+            padding: 5.5% 0%;
+            text-decoration: none;
+            
+        }
+
+        #jump-list li a {
+            color: white;
+            text-decoration: none;;
+        }
+
+        jump-list li a:hover {
+            color: #757083;
+        }
      }
 
     @media screen and (max-width: 400px) {
