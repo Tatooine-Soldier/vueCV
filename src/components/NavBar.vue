@@ -90,7 +90,7 @@
 
     @media screen and (max-width: 1200px) {
         .menu-container {
-            top: 7%;
+            top: 5%;
         }
     }
     @media screen and (max-width: 1100px) {
@@ -131,7 +131,7 @@
     @media screen and (max-width: 550px) {
 
         .menu-container {
-            top: 5%;
+            top: 4%;
             left: 50.5%;
         }
     }
@@ -147,7 +147,7 @@
         }
 
         .menu-container {
-            top: 5.4%;
+            top: 3.5%;
             left: 60.5%;
         }
     }

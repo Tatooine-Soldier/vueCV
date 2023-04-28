@@ -33,12 +33,6 @@ import NavBar from './components/NavBar.vue'
     color: grey;
 }
 
-#navbar {
-  /* position: fixed;
-  top: 0;
-  width: 100%; /* Ensure the NavBar takes up the full width of the screen 
-  z-index: 1; */
-}
 
 
 @media screen and (max-width: 400px) {
