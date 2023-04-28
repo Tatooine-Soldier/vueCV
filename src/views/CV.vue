@@ -33,11 +33,11 @@
                                 <span class="weak-strong">Weak</span><span class="ability-gradient"></span><span class="weak-strong">Strong</span>
                             </div>
                             <ul>
-                                <li>Python <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[1]}"></span></li>
+                                <li>Python <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[0]}"></span></li>
                                 <li>Golang <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[2]}"></span></li>
                                 <li>HTML/CSS <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[1]}"></span></li>
                                 <li>Java <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[3]}"></span></li>
-                                <li>Vue JS <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[1]}"></span></li>
+                                <li>Vue JS <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[0]}"></span></li>
                                 <li>React JS <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[3]}"></span></li>
                                 <li>SQL <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[1]}"></span></li>
                                 <li>Mongo <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[2]}"></span></li>

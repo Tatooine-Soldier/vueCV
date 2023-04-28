@@ -4,7 +4,7 @@ import NavBar from './components/NavBar.vue'
 
 <template>
   <section id="app-container">
-    <NavBar/>
+    <NavBar id="navbar"/>
     <section class="router">
       <router-view></router-view>
     </section>
@@ -15,6 +15,7 @@ import NavBar from './components/NavBar.vue'
 <style>
   #app-container {
     color: white;
+  
   }
 
   body {
@@ -30,6 +31,13 @@ import NavBar from './components/NavBar.vue'
     padding-top: 4%;
     margin-left: 1%;;
     color: grey;
+}
+
+#navbar {
+  /* position: fixed;
+  top: 0;
+  width: 100%; /* Ensure the NavBar takes up the full width of the screen 
+  z-index: 1; */
 }
 
 
