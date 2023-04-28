@@ -54,9 +54,7 @@ import NavBar from './components/NavBar.vue'
 
 <script>
   export default {
-    mounted() {
-      this.$http.get('http://localhost:3000').then(response => console.log(response));
-    }
+   
   }
  
 </script>
