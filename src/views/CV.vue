@@ -4,7 +4,7 @@
         <section class="details-container">
             <section class="details">
                 <div class="header-with-button">
-                    <h3>My Skills</h3> <span><input type="button" @click="expand('skills')" value="Skip" class="expand-CV"/></span>
+                    <h3>My Skills</h3> <span><div id="skills"></div></span>
                 </div>
                 <div class="skills-container" id="skills-container">
                     <section>
@@ -51,8 +51,7 @@
             </section>
             <section class="details">
                 <div class="header-with-button">
-                    
-                    <h3>My Experience</h3> <span><input type="button" @click="expand('exp')" value="Skip" class="expand-CV"/></span>
+                    <h3>My Experience</h3> <span><div id="exp"></div></span>
                 </div>
                 <div class="skills-container">
                     <section>
@@ -88,7 +87,7 @@
             </section>
             <section class="details">
                 <div class="header-with-button">
-                    <h3>My Education</h3> <span><input type="button" @click="expand('education')" value="Skip" class="expand-CV"/></span>
+                    <h3>My Education</h3> <span><div id="edu"></div></span>
                 </div>
                 <section>
                     <h4>University College Cork, <i>2019-2023</i></h4>
@@ -111,11 +110,38 @@
                     <li><section class="links"><a href="https://github.com/Tatooine-Soldier">Github</a></section></li>
                 </ul>
             </section>
+
+            <section class="jump-to-container" id="jump-to-container" @click="showJumps">&lt;
+            </section>
+            <section id="jump-list">
+                <div id="jump-to-header">Jump to:</div>
+                <ul>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#exp">Experience</a></li>
+                    <li><a href="#edu">Education</a></li>
+                    <li><a href="#links">Links</a></li>
+                </ul>
+            </section>
+
         </section>
     </section>
 </template>
 
 <style>
+    .jump-to-container {
+        display: none;
+    }
+
+    #jump-list {
+        display: none;
+    }
+
+    #jump-to-header {
+        padding-top: 2%;
+        text-align: center;
+        text-decoration: underline;
+    }
+
     .ability-gradient {
         background: linear-gradient(to right, #FF0000, #0000FF);
         padding: 3%;
@@ -237,6 +263,44 @@
         .colorBlock {
             width: 10px;
         }
+
+        .jump-to-container {
+            display: block;
+            right: 4%;
+            bottom: 3%;
+            border-radius: 15px;
+            padding: 5%;
+            border: solid 1px silver;
+            border-radius: 10px;;
+            background-color: #474056;
+            position: fixed;
+        }
+
+        #jump-list {
+            right: 4%;
+            bottom: 10%;
+            padding: .5%;
+            width: 40%;
+            position: fixed;
+            background-color: #474056;
+            color: white;
+            border: solid 1px silver;
+        }
+
+        #jump-list li {
+            padding: 5.5% 0%;
+            text-decoration: none;
+            
+        }
+
+        #jump-list li a {
+            color: white;
+            text-decoration: none;;
+        }
+
+        jump-list li a:hover {
+            color: #757083;
+        }
     }
 
 </style>
@@ -246,6 +310,7 @@ export default {
     data() {
       return {
         counter: 0,
+        jumpCounter: 0,
         rangeColors: ["#0000FF", "#4A49D3", "#7A49C0", "#BE254B " ,"#FF0000"]
       }
     },
@@ -308,6 +373,18 @@ export default {
                 }
             }
             this.counter += 1;
+        },
+        showJumps() {
+            var dot = document.getElementById("jump-to-container")
+            var l = document.getElementById("jump-list");
+            if (this.jumpCounter % 2 == 0) {
+                l.style.display = "block"
+                dot.innerHTML = ">"
+            } else {
+                l.style.display = "none"
+                dot.innerHTML = "<"
+            }
+            this.jumpCounter += 1;
         }
     }
 }
