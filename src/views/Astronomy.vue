@@ -40,32 +40,32 @@
 </style>
 
 <script >
-import { Loader } from '@googlemaps/js-api-loader'
-import {ref, onMounted} from 'vue'
-export default {
-    setup() {
-        let map = ref(null)
-        let destMarker = ref(null)
-        const GOOGLE_MAPS_API_KEY = 'AIzaSyBkU3LEkHvrO8_kpSWGqobpFob-sESKlA8'
-        const loader = new Loader({ apiKey: GOOGLE_MAPS_API_KEY})
-        const mapDivHere = ref(null);
+// import { Loader } from '@googlemaps/js-api-loader'
+// import {ref, onMounted} from 'vue'
+// export default {
+//     setup() {
+//         let map = ref(null)
+//         let destMarker = ref(null)
+//         const GOOGLE_MAPS_API_KEY = 'AIzaSyBkU3LEkHvrO8_kpSWGqobpFob-sESKlA8'
+//         const loader = new Loader({ apiKey: GOOGLE_MAPS_API_KEY})
+//         let mapDivHere = ref(null);
 
         
-        onMounted(async () => {
-          await loader.load() 
+//         onMounted(async () => {
+//           await loader.load() 
 
-          map.value = new google.maps.Map(mapDivHere.value, {
-            center: {lat: 0.0, lng: 0.0},
-            zoom: 9
-          })
+//           map.value = new google.maps.Map(mapDivHere.value, {
+//             center: {lat: 0.0, lng: 0.0},
+//             zoom: 9
+//           })
 
-          destMarker.value = new google.maps.Marker({
-                position: {lat: 0.0, lng: 0.0},
-                draggable: true,
-                map: map.value
-            })
-        })
-        return {mapDivHere}
-    }
-}
+//           destMarker.value = new google.maps.Marker({
+//                 position: {lat: 0.0, lng: 0.0},
+//                 draggable: true,
+//                 map: map.value
+//             })
+//         })
+//         return {mapDivHere}
+//     }
+// }
 </script>

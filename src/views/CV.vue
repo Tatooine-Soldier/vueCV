@@ -167,7 +167,7 @@
     }
 
     #cv-container {
-        background-color: #757083;
+        background-color: #757083; 
         height: auto;
     }
 
