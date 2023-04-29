@@ -59,8 +59,8 @@ export default {
 
         //   var lat = parseFloat(final.iss_position.latitude)
         //   var lng = parseFloat(final.iss_position.longitude)
-          var lat = 50.0
-          var lng = -123.5
+          var lat = 50.1250
+          var lng = -123.7895
 
           currPos.value = {lat: lat, lng: lng}
           map.value = new google.maps.Map(mapDivHere.value, {
@@ -73,8 +73,11 @@ export default {
                 map: map.value
             })
 
+          lat = lat.toString()
+          lng =  lng.toString()
+          var contentString = "<b style='color:black;'>ISS Location<br><i>Lat: "+lat+"<br>Lng: "+lng+"</i></b>"
           const issWindow = new google.maps.InfoWindow({
-            content: "ISS-Location",
+            content: contentString,
             ariaLabel: "ISS",
           });
 
