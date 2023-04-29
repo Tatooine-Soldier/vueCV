@@ -39,6 +39,7 @@
 
 import { Loader } from '@googlemaps/js-api-loader'
 import {ref, onMounted, onUnmounted} from 'vue'
+
 const GOOGLE_MAPS_API_KEY = 'AIzaSyBkU3LEkHvrO8_kpSWGqobpFob-sESKlA8'
 //const GOOGLE_MAPS_API_KEY = 'AIzaSyDTNOMjJP2zMMEHcGy2wMNae1JnHkGVvn0' 
 export default {
@@ -53,32 +54,35 @@ export default {
         onMounted(async () => {
           await loader.load() 
 
+          var res = await fetch("http://api.open-notify.org/iss-now.json")
+          var final = await res.json()
 
+          var lat = parseFloat(final.iss_position.latitude)
+          var lng = parseFloat(final.iss_position.longitude)
+          console.log(lat, lng)
 
-          currPos.value = {lat: 0.0, lng: 0.0}
+          currPos.value = {lat: lat, lng: lng}
           map.value = new google.maps.Map(mapDivHere.value, {
             center: currPos.value,
-            zoom: 9
+            zoom: 5
           })
 
           destMarker.value = new google.maps.Marker({
-                position: {lat: 0.0, lng: 0.0},
-                draggable: true,
+                position: {lat: lat, lng: lng},
                 map: map.value
             })
-        // const loader = new Loader({
-        //     apiKey: GOOGLE_MAPS_API_KEY,
-        //     version: "weekly"
-        //     });
 
-        //     loader.load().then(async () => {
-        //     const { Map } = await google.maps.importLibrary("maps");
+          const issWindow = new google.maps.InfoWindow({
+            content: "ISS Location",
+            ariaLabel: "ISS",
+          });
 
-        //     map = new Map(document.getElementById("map"), {
-        //         center: { lat: -34.397, lng: 150.644 },
-        //         zoom: 8,
-        //     });
-        //     });
+          destMarker.value.addListener("click", () => {
+            issWindow.open({
+                anchor: destMarker.value,
+                map,
+                });
+            });
         })
 
         onUnmounted(async () => {
