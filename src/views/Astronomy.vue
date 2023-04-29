@@ -54,12 +54,13 @@ export default {
         onMounted(async () => {
           await loader.load() 
 
-          var res = await fetch("http://api.open-notify.org/iss-now.json")
-          var final = await res.json()
+        //   var res = await fetch("http://api.open-notify.org/iss-now.json")
+        //   var final = await res.json()
 
-          var lat = parseFloat(final.iss_position.latitude)
-          var lng = parseFloat(final.iss_position.longitude)
-          console.log(lat, lng)
+        //   var lat = parseFloat(final.iss_position.latitude)
+        //   var lng = parseFloat(final.iss_position.longitude)
+          var lat = 50.0
+          var lng = -123.5
 
           currPos.value = {lat: lat, lng: lng}
           map.value = new google.maps.Map(mapDivHere.value, {
@@ -73,14 +74,14 @@ export default {
             })
 
           const issWindow = new google.maps.InfoWindow({
-            content: "ISS Location",
+            content: "ISS-Location",
             ariaLabel: "ISS",
           });
 
           destMarker.value.addListener("click", () => {
             issWindow.open({
                 anchor: destMarker.value,
-                map,
+                map: map.value,
                 });
             });
         })
