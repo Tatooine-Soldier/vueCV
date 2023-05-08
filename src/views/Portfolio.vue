@@ -1,6 +1,7 @@
 <template>
     <section class="portfolio-container">
         <section>
+            <h2>Portfolio</h2>
             <p>I have completed various projects, both personal and college-related.</p> 
             <p>Below I've linked my Github where the source code for my projects can be viewed and my CV:</p>
             <div>
@@ -39,6 +40,10 @@
 
     .portfolio-container li a:hover {
         color: silver;
+    }
+
+    .portfolio-container ul {
+        margin-right: 2em;
     }
    
 
