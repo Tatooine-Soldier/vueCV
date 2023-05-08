@@ -36,7 +36,7 @@
                                 <li>Python <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[0]}"></span></li>
                                 <li>Golang <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[2]}"></span></li>
                                 <li>HTML/CSS <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[1]}"></span></li>
-                                <li>Java <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[3]}"></span></li>
+                                <li>Java <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[2]}"></span></li>
                                 <li>Vue JS <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[0]}"></span></li>
                                 <li>React JS <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[3]}"></span></li>
                                 <li>SQL <span class="s-ability-gradient" :style="{backgroundColor: rangeColors[1]}"></span></li>
@@ -59,7 +59,7 @@
                         <section class="skill-paragraph">
                             I worked as a lab demonstrator for about 10 weeks in UCC. This was for the module "Information and Storage Management 2" module. I had completed this course myself when I was in second year so I was pretty 
                             familiar with the contents of the course. My role was to help students with querires about the labsheet questions and to invgilate an exam the class participated in and assist the lecturer with any other tasks. The contents of the course 
-                            included building and executing SQL and MongoDB database operations along with Neo4J and indexing databases. I enjoyed this a lot!
+                            included building and executing SQL and MongoDB database operations along with Neo4J and working with cloud databases using Azure. I enjoyed this a lot!
                         </section>
                     </section>
                     <section>

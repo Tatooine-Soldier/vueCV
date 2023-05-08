@@ -46,7 +46,7 @@
         position: absolute;
         top: 0; right: 0; bottom: 0; left: 0;
         inset: 0 0 0 0;
-        background: hsl(0, 0%, 65%);
+        background: hsl(0, 0%, 60%);
         z-index: -1;
         transition: transform .6s linear;
       }
@@ -71,7 +71,7 @@
             return {
                 colorList: ["#474056", "#757083", "#8A95A5", "#B9C6AE"],
                 dataList: ["Tom O'Dwyer", "My CV", "Portfolio", "About Me"],
-                routerList: ["/home", "/CV", "/hobbies", "/hobbies"]
+                routerList: ["/home", "/CV", "/portfolio", "/hobbies"]
             }
         },
     }
