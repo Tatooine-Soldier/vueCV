@@ -3,6 +3,7 @@
         background-color: #474056;
         text-align: center;
         padding: 10px;
+        padding-bottom: 2%;
     }
 
     .astro-heading h2 {
@@ -46,6 +47,8 @@ export default {
     setup() {
         let map = ref(null)
         let destMarker = ref(null)
+
+        let speed = ref(null)
         
         const loader = new Loader({ apiKey: GOOGLE_MAPS_API_KEY})
         let mapDivHere = ref(null);
@@ -54,21 +57,55 @@ export default {
         onMounted(async () => {
           await loader.load() 
 
-        //   var res = await fetch("http://api.open-notify.org/iss-now.json")
-        //   var final = await res.json()
+          drawMap()
+          
+        })
 
-        //   var lat = parseFloat(final.iss_position.latitude)
-        //   var lng = parseFloat(final.iss_position.longitude)
-          var lat = 50.1250
-          var lng = -123.7895
+        onUnmounted(async () => {
+            
+        })
 
-          currPos.value = {lat: lat, lng: lng}
-          map.value = new google.maps.Map(mapDivHere.value, {
-            center: currPos.value,
-            zoom: 5
-          })
+        async function drawMap() {
 
-          destMarker.value = new google.maps.Marker({
+            var res = await fetch("https://api.wheretheiss.at/v1/satellites/25544")
+                var final = await res.json()
+
+            var lat = parseFloat(final.latitude)
+            var lng = parseFloat(final.longitude)
+
+            speed.value = parseFloat(final.velocity).toFixed(2)
+
+            currPos.value = {lat: lat, lng: lng}
+            map.value = new google.maps.Map(mapDivHere.value, {
+                center: currPos.value,
+                zoom: 5
+             })
+             
+            updateMarker(map, lat, lng)
+
+            // do not delete
+            // setInterval(async () => {
+            //     var res = await fetch("https://api.wheretheiss.at/v1/satellites/25544")
+            //     var final = await res.json()
+
+            // var lat = parseFloat(final.latitude)
+            // var lng = parseFloat(final.longitude)
+
+            // speed.value = parseFloat(final.velocity).toFixed(2)
+
+            // currPos.value = {lat: lat, lng: lng}
+            // map.value = new google.maps.Map(mapDivHere.value, {
+            //     center: currPos.value,
+            //     zoom: 5
+            //  })
+             
+            // updateMarker(map, lat, lng)
+
+            // }, 3000)
+        }
+
+        function updateMarker(map, lat, lng) {
+            destMarker.value = new google.maps.Marker({
                 position: {lat: lat, lng: lng},
                 map: map.value
             })
@@ -87,12 +124,10 @@ export default {
                 map: map.value,
                 });
             });
-        })
+        }
 
-        onUnmounted(async () => {
-            
-        })
-        return {currPos, mapDivHere}
+
+        return {currPos, mapDivHere, speed}
     }
 }
 </script>
@@ -106,11 +141,14 @@ export default {
         <section class="astro-content">
             <p class="astro-par">Astronomy is a past-time I've had since I was very young. My dad has many telescopes so I've had the opprotunity to play around with them over the years and I've got to see some really cool stuff.
             My favourite celestial bodies are The Andromeda Galaxy(M31) and Saturn. I also like tracking satellites passing overhead like <a hre="https://www.starlink.com/">Starlink</a> and the ISS.</p>
-            <p class="astro-par">In fact, I've made my own map to track the ISS using the Google Maps API and a live ISS coordinate tracking API. Check it out below!</p>
+            <p class="astro-par">In fact, I've made my own map to live-track the ISS using the Google Maps API and a live ISS coordinate tracking API. Check it out below!</p>
             <section class="map-container">
                 <div ref="mapDivHere"  id="map"/>
-               
             </section>
+            <section>
+                Speed: <i>{{ speed }}</i> km/h
+            </section>
+            
         </section>
     </section>
 </template>
