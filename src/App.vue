@@ -1,5 +1,6 @@
 <script setup>
 import NavBar from './components/NavBar.vue'
+import FooterName from './components/FooterName.vue';
 </script>
 
 <template>
@@ -8,6 +9,7 @@ import NavBar from './components/NavBar.vue'
     <section class="router">
       <router-view></router-view>
     </section>
+    <FooterName id="footer"></FooterName>
     <!-- <div id="copyright-line">Copyright @ Tom O'Dwyer 2023</div> -->
   </section>
 </template>
@@ -33,6 +35,10 @@ import NavBar from './components/NavBar.vue'
     color: grey;
 }
 
+#footer {
+  position: relative;
+  bottom: 2%;
+}
 
 
 @media screen and (max-width: 400px) {

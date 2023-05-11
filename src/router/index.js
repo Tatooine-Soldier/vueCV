@@ -5,6 +5,7 @@ import Hobbies from '../views/Hobbies.vue'
 import Astronomy from '../views/Astronomy.vue'
 import Portfolio from '../views/Portfolio.vue'
 import PageNotFound from '../views/PageNotFound.vue'
+import Photography from '../views/Photography.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -28,6 +29,10 @@ const router = createRouter({
     { 
       path: '/astronomy', 
       component: Astronomy
+    },
+    {
+      path: '/photography',
+      component: Photography
     },
     {
       path: '/portfolio',
