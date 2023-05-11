@@ -4,6 +4,7 @@ import CV from '../views/CV.vue'
 import Hobbies from '../views/Hobbies.vue'
 import Astronomy from '../views/Astronomy.vue'
 import Portfolio from '../views/Portfolio.vue'
+import PageNotFound from '../views/PageNotFound.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -31,7 +32,12 @@ const router = createRouter({
     {
       path: '/portfolio',
       component: Portfolio
-    } 
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'pagenotfound',
+      component: PageNotFound
+    }
   ]
 })
 
