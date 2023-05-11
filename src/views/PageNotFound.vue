@@ -3,7 +3,7 @@
         <section class="not-page-inner">
             <div id="not-page-home"><router-link to="/home">&lt; Home</router-link></div>
             <div class="obiwan-display">
-                <div><b>THIS IS NOT THE PAGE YOU ARE LOOKING FOR...</b></div>
+                <div><b>THIS IS NOT THE PAGE YOU'RE LOOKING FOR...</b></div>
                 <div class="obiwan-container"><img src="../assets/obiSave.jpg" id="obiwan"/></div>
             </div>
         </section>
