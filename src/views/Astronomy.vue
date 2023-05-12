@@ -173,6 +173,12 @@ export default {
         #map {
             height:60vh;
         }
+
+        #map-refresh-div {
+            width: 20%;
+            top: 70%;
+            margin-left: 2.5%;
+        }
     }
     
 </style>
