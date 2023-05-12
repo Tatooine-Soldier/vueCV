@@ -1,6 +1,6 @@
 <template>
     <section>
-        <section>
+        <section class="home-container">
             <section class="home-section" v-for="colour,i in colorList" :key="i" :style="{backgroundColor: colour}"> 
                 <router-link :to="routerList[i]" style="text-decoration: none;">
                     <p class="home-content">
@@ -60,6 +60,15 @@
         .home-section {
             padding: 20px;
             font-size: 1.1em;
+        }
+
+        .home-content {
+            padding: 40px;;
+
+        }
+
+        .home-container {
+            height: 100vh;;
         }
     }
     

@@ -140,6 +140,7 @@
         #inner-navbar {
             display: grid;
             grid-template-columns: 99% 1%;;
+            padding: 2%;
         }
 
         .links {
@@ -147,7 +148,7 @@
         }
 
         .menu-container {
-            top: 3.5%;
+            top: 5%;
             left: 60.5%;
         }
     }
