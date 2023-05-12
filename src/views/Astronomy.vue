@@ -1,40 +1,3 @@
-<style>
-    .astro-container {
-        background-color: #474056;
-        text-align: center;
-        padding: 10px;
-        padding-bottom: 2%;
-    }
-
-    .astro-heading h2 {
-        margin-top: 0%;
-        padding-top: 1%;
-        text-align: center;
-    }
-
-    #map {
-        border: solid silver 1px;
-        width:100%; 
-        height:80vh;
-    }
-
-    .astro-content {
-        width: 80%;
-        margin: 0 auto;
-    }
-
-    @media screen and (max-width: 600px) {
-        .astro-content {
-            width: 100%;
-        }
-
-        #map {
-            height:60vh;
-        }
-    }
-    
-</style>
-
 <script >
 /* eslint-disable-no-undef */
 
@@ -58,7 +21,8 @@ export default {
           await loader.load() 
 
           drawMap()
-          
+          var refresh = document.getElementById("map-refresh-div")
+          refresh.addEventListener("click", drawMap)
         })
 
         onUnmounted(async () => {
@@ -68,7 +32,9 @@ export default {
         async function drawMap() {
 
             var res = await fetch("https://api.wheretheiss.at/v1/satellites/25544")
-                var final = await res.json()
+            var final = await res.json()
+
+            console.log("final", final)
 
             var lat = parseFloat(final.latitude)
             var lng = parseFloat(final.longitude)
@@ -128,6 +94,9 @@ export default {
 
 
         return {currPos, mapDivHere, speed}
+    },
+    methods: {
+
     }
 }
 </script>
@@ -148,7 +117,62 @@ export default {
             <section>
                 Speed: <i>{{ speed }}</i> km/h
             </section>
-            
+            <div id="map-refresh-div" >Refresh Map</div>
         </section>
     </section>
 </template>
+
+<style>
+    .astro-container {
+        background-color: #474056;
+        text-align: center;
+        padding: 10px;
+        padding-bottom: 2%;
+    }
+
+    .astro-heading h2 {
+        margin-top: 0%;
+        padding-top: 1%;
+        text-align: center;
+    }
+
+    #map {
+        border: solid silver 1px;
+        width:100%; 
+        height:80vh;
+    }
+
+    .astro-content {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    #map-refresh-div {
+        width: 12%;
+        color: rgb(86,86,86);
+        padding: 5px;
+        background-color: white;
+        z-index: 1;
+        position: absolute;
+        top: 60%;
+        margin-left: .8%;
+        border: solid silver 1px;
+        border-radius: 2.8px;;
+    }
+
+    #map-refresh-div:hover {
+        background-color: rgb(235,235,235);
+        cursor: pointer;
+    }
+
+    @media screen and (max-width: 600px) {
+        .astro-content {
+            width: 100%;
+        }
+
+        #map {
+            height:60vh;
+        }
+    }
+    
+</style>
