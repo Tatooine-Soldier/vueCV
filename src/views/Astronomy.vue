@@ -136,7 +136,7 @@ export default {
                     </tr>
                     <tr>
                         <th>Time:</th>
-                        <th>{{ time }}</th>
+                        <th>{{ time }} UTC</th>
                     </tr>
                     <tr>
                         <th>Speed:</th>
