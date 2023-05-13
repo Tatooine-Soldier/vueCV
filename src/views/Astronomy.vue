@@ -12,6 +12,7 @@ export default {
         let destMarker = ref(null)
 
         let speed = ref(null)
+        let time = ref(null)
         
         const loader = new Loader({ apiKey: GOOGLE_MAPS_API_KEY})
         let mapDivHere = ref(null);
@@ -40,6 +41,8 @@ export default {
             var lng = parseFloat(final.longitude)
 
             speed.value = parseFloat(final.velocity).toFixed(2)
+            time.value = parseTimeDate(final.timestamp)
+            
 
             currPos.value = {lat: lat, lng: lng}
             map.value = new google.maps.Map(mapDivHere.value, {
@@ -92,8 +95,19 @@ export default {
             });
         }
 
+        function parseTimeDate(t) {
+            const date = new Date(t * 1000);
 
-        return {currPos, mapDivHere, speed}
+            const hours = date.getUTCHours().toString().padStart(2, '0');
+            const minutes = date.getUTCMinutes().toString().padStart(2, '0');
+            const seconds = date.getUTCSeconds().toString().padStart(2, '0');
+
+            const timeString = hours + ':' + minutes + ':' + seconds;
+            return timeString
+        }
+
+
+        return {currPos, mapDivHere, speed, time}
     },
     methods: {
 
@@ -114,8 +128,21 @@ export default {
             <section class="map-container">
                 <div ref="mapDivHere"  id="map"/>
             </section>
-            <section>
-                Speed: <i>{{ speed }}</i> km/h
+            <section class="table-container">
+                <table>
+                    <tr>
+                        <th>Metric</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <th>Time:</th>
+                        <th>{{ time }}</th>
+                    </tr>
+                    <tr>
+                        <th>Speed:</th>
+                        <th>{{ speed }} km/h</th>
+                    </tr>
+                </table>
             </section>
             <div id="map-refresh-div" >Refresh Map</div>
         </section>
@@ -123,6 +150,27 @@ export default {
 </template>
 
 <style>
+    table {
+        margin: 1% auto;
+        border: solid silver 1.5px;
+        padding: 5px;
+    }
+
+    th {
+        border-bottom: solid silver 0.5px;
+    }
+
+    .table-container {
+        position: absolute;
+        z-index: 1;
+        bottom: 15%;
+        margin-left: .8%;
+    }
+
+    .table-container table {
+        background-color: #474056;
+    }
+
     .astro-container {
         background-color: #474056;
         text-align: center;
@@ -178,6 +226,21 @@ export default {
             width: 20%;
             top: 70%;
             margin-left: 2.5%;
+        }
+
+        .table-container {
+            bottom: 1%;
+            margin-left: 2.5%;
+            width: 20%;
+            font-size: .8em;
+        }
+    
+    }
+
+    @media screen and (min-height: 820px) {
+        .table-container {
+            bottom: 4%;
+        
         }
     }
     
