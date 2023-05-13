@@ -7,23 +7,23 @@
                     <section class="photo-cols">Astronomy Gallery
                         <section class="obiwan-photos">
                             <img src="../assets/obiSave.jpg" id="obi1" class="obi-class" @click="fullImage('obi1')"/>
-                            <img src="../assets/obiSave.jpg" id="obi2" class="obi-class" @click="fullImage('obi2')"/>
-                            <img src="../assets/obiSave.jpg" id="obi3" class="obi-class" @click="fullImage('obi3')"/>
+                            <img src="../assets/moon2.jpg" id="obi2" class="obi-class" @click="fullImage('moon2')"/>
+                            <img src="../assets/moon1.jpg" id="obi3" class="obi-class" @click="fullImage('moon1')"/>
                         </section>
                     </section>
 
                     <section class="photo-cols">Natural Gallery
                         <section class="obiwan-photos">
                             <img src="../assets/obiSave.jpg" id="obi1" class="obi-class" @click="fullImage('obi1')"/>
-                            <img src="../assets/obiSave.jpg" id="obi2" class="obi-class" @click="fullImage('obi2')"/>
-                            <img src="../assets/obiSave.jpg" id="obi3" class="obi-class" @click="fullImage('obi3')"/>
+                            <img src="../assets/bridgem9.jpg" id="obi2" class="obi-class" @click="fullImage('bridge')"/>
+                            <img src="../assets/skyOrange.jpg" id="obi3" class="obi-class" @click="fullImage('sky')"/>
                         </section>
                     </section>
                     <section class="photo-cols">City Gallery
                         <section class="obiwan-photos">
                             <img src="../assets/obiSave.jpg" id="obi1" class="obi-class" @click="fullImage('obi1')"/>
-                            <img src="../assets/obiSave.jpg" id="obi2" class="obi-class" @click="fullImage('obi2')"/>
-                            <img src="../assets/obiSave.jpg" id="obi3" class="obi-class" @click="fullImage('obi3')"/>
+                            <img src="../assets/corkBuilding.jpg" id="obi2" class="obi-class" @click="fullImage('cork')"/>
+                            <img src="../assets/ucc.jpg" id="obi3" class="obi-class" @click="fullImage('ucc')"/>
                         </section>
                     </section>
                 </section>
@@ -31,7 +31,13 @@
             <section class="modal" id="modal">
                 <section class="modal-content" id="modal-content">
                     <span class="close-modal" @click="hidemodal()">&times;</span>
-                    <img src="../assets/obiSave.jpg" id="obimodal"/>
+                    <img src="../assets/obiSave.jpg" id="obimodal" class="modal-img"/>
+                    <img src="../assets/corkBuilding.jpg" id="obimodal1" class="modal-img"/>
+                    <img src="../assets/ucc.jpg" id="obimodal2" class="modal-img"/>
+                    <img src="../assets/bridgem9.jpg" id="obimodal3" class="modal-img"/>
+                    <img src="../assets/skyOrange.jpg" id="obimodal4" class="modal-img"/>
+                    <img src="../assets/moon2.jpg" id="obimodal5" class="modal-img"/>
+                    <img src="../assets/moon1.jpg" id="obimodal6" class="modal-img"/>
                 </section>
             </section>
         </section>
@@ -114,6 +120,12 @@
 #obimodal {
     height: 100%;
     width: 100%;
+    display: none;
+}
+
+.modal-img {
+    height: 100%;
+    width: 100%;
 }
 
 .modal-content {
@@ -161,17 +173,51 @@ export default {
             fullImage(img) {
                 var m = document.getElementById("modal")
                 var mc = document.getElementById("modal-content")
+                var o = document.getElementById("obimodal")
+                var o1 = document.getElementById("obimodal1")
+                var o2 = document.getElementById("obimodal2")
+                var o3 = document.getElementById("obimodal3")
+                var o4 = document.getElementById("obimodal4")
+                var o5 = document.getElementById("obimodal5")
+                var o6 = document.getElementById("obimodal6")
+
+                o5.style.display = "none" 
+                o4.style.display = "none"
+                o6.style.display = "none" 
+                o3.style.display = "none"
+                o2.style.display = "none" 
+                o1.style.display = "none"
+                o.style.display = "none"
+
                 m.style.display = "block"
                     switch(img) {
-                        case "obi1":
-                            console.log("obi1");
+                        case "moon1":
+                            console.log("moon1");
+                            o6.style.display = "block"
                             break
-                        case "obi2":
-                            console.log("obi2"); 
+                        case "moon2":
+                            console.log("moon2");
+                            o5.style.display = "block" 
                             break  
-                        case "obi3":
-                            console.log("obi3");
+                        case "sky":
+                            console.log("sky");
+                            o4.style.display = "block"
                             break   
+                        case "bridge":
+                            console.log("bridge");
+                            o3.style.display = "block"
+                            break   
+                        case "cork":
+                            console.log("cork");
+                            o1.style.display = "block"
+                            break   
+                        case "ucc":
+                            console.log("ucc");
+                            o2.style.display = "block"
+                            break
+                        default: 
+                            o.style.display = "block"
+                            break
                     }
             },
             hidemodal() {
