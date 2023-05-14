@@ -7,6 +7,7 @@
             <div>
                 <ul>
                     <li><router-link to="/astronomy">Astronomy</router-link></li>
+                    <li><router-link to="/photography">Photography</router-link></li>
                     <li><router-link to="/CV">CV</router-link></li>
                 </ul>
             </div>
